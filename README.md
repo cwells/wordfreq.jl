@@ -1,6 +1,8 @@
 # wordfreq.jl
 
-Coding challenge in Julia. Count how many times phrases occur in arbitrary text.
+Coding challenge in Julia. Count how many times phrases occur in arbitrary text. 
+
+I should have named it "PhraseFreq" but I suppose it's too late now.
 
 ```julia
 julia> using WordFreq
