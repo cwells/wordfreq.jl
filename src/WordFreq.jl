@@ -12,7 +12,8 @@ Summary = Base.Iterators.Enumerate{Array{PhraseFrequency, 1}}
     analyze(text, stride)
 
 Analyzes `text` and returns a dictionary describing
-the frequency of phrases of `stride` word length."""
+the frequency of phrases of `stride` word length.
+"""
 function analyze(text::String, stride::Int64)::FrequencyTable
   table = FrequencyTable()
   words = split(lowercase(text), r"[^a-z0-9'$%]"; keepempty=false)
@@ -34,7 +35,8 @@ end
 
 Sorts frequency data and returns a ranked summary of the
 phrases with the highest frequencies, up to `highest` results,
-in descending order."""
+in descending order.
+"""
 function top(highest::Int64, frequencies::FrequencyTable)::Summary
   enumerate(sort!(
     collect(frequencies),
@@ -46,7 +48,8 @@ end
 """
     main(filename, stride, highest)
 
-Analyzes the provided file and summarizes the results."""
+Analyzes the provided file and summarizes the results.
+"""
 function main(filename::String, stride::Int64 = 3, highest::Int64 = 10)
   open(filename, "r") do file
     text = read(file, String)
