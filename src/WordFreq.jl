@@ -51,9 +51,9 @@ function main(filename::String, stride::Int64 = 3, highest::Int64 = 10)
   open(filename, "r") do file
     text = read(file, String)
     frequencies = analyze(text, stride)
-    @printf("\n%5s %7s   %s (stride %i)", "rank", "freq", "phrase", stride)
+    @printf("\n%5s %6s   %s (stride %i)", "rank", "freq", "phrase", stride)
     for (rank, (phrase, frequency)) in top(highest, frequencies)
-      @printf("\n%5i %7i   %s", rank, frequency, phrase)
+      @printf("\n%5i %6i   %s", rank, frequency, phrase)
     end
     @printf("\n\n")
   end
