@@ -5,6 +5,8 @@ Coding challenge in Julia. Count how many times phrases occur in arbitrary text.
 I should have named it "PhraseFreq" but I suppose it's too late now.
 
 ```julia
+julia> using WordFreq
+
 julia> print(summarize("test/data/oos.txt", 3))
 rank  freq   phrase
    1   320   of the same
@@ -17,6 +19,4 @@ rank  freq   phrase
    8    89   on the other
    9    81   the other hand
   10    78   the case of
-  
-julia>
 ```
