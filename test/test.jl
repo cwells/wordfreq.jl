@@ -30,4 +30,15 @@ using Test, WordFreq
       (3, "this one"     => 1)
     ] == collect(top(3, analyze(text, 2)))
   end
+
+  @testset "summarize" begin
+    @test [
+      "rank  freq   phrase",
+      "   1   320   of the same",
+      "   2   130   the same species",
+      "   3   125   conditions of life",
+      "   4   117   in the same"
+    ] == summarize("data/oos.txt", 3, 4)
+  end
+
 end
