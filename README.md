@@ -3,13 +3,6 @@
 Coding challenge in Julia. Count how many times phrases occur in arbitrary text.
 
 ```julia
-julia> push!(LOAD_PATH, "..")
-4-element Array{String,1}:
- "@"
- "@v#.#"
- "@stdlib"
- ".."
-
 julia> using WordFreq
 
 julia> main("data/oos.txt", 3)
