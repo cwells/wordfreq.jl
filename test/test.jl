@@ -32,13 +32,13 @@ using Test, WordFreq
   end
 
   @testset "summarize" begin
-    @test [
+    @test join([
       "rank  freq   phrase",
       "   1   320   of the same",
       "   2   130   the same species",
       "   3   125   conditions of life",
       "   4   117   in the same"
-    ] == summarize("data/oos.txt", 3, 4)
+    ], "\n") == summarize("data/oos.txt", 3, 4)
   end
 
 end

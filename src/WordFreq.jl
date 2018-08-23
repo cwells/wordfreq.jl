@@ -1,5 +1,5 @@
 module WordFreq
-export analyze, top, main, Phrase, Frequency, PhraseFrequency, FrequencyTable, Summary
+export analyze, top, summarize, PhraseFrequency, FrequencyTable
 
 using Printf
 
@@ -46,20 +46,22 @@ function top(highest::Int64, frequencies::FrequencyTable)::Summary
 end
 
 """
-    main(filename, stride, highest)
+    summarize(filename, stride, highest)
 
 Analyzes the provided file and summarizes the results.
 """
-function main(filename::String, stride::Int64 = 3, highest::Int64 = 10)
+function summarize(filename::String, stride::Int64 = 3, highest::Int64 = 10)::String
+  summary = [ @sprintf("%4s %5s   %s", "rank", "freq", "phrase") ]
+
   open(filename, "r") do file
     text = read(file, String)
     frequencies = analyze(text, stride)
-    @printf("\n%5s %6s   %s (stride %i)", "rank", "freq", "phrase", stride)
     for (rank, (phrase, frequency)) in top(highest, frequencies)
-      @printf("\n%5i %6i   %s", rank, frequency, phrase)
+      append!(summary, [ @sprintf("%4i %5i   %s", rank, frequency, phrase) ])
     end
-    @printf("\n\n")
   end
+
+  join(summary, "\n")
 end
 
 end
