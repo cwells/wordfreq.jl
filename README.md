@@ -8,6 +8,7 @@ I should have named it "PhraseFreq" but I suppose it's too late now.
 julia> using WordFreq
 
 julia> print(summarize("test/data/oos.txt", 3))
+
 rank  freq   phrase
    1   320   of the same
    2   130   the same species
